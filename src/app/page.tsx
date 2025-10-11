@@ -31,7 +31,7 @@ export default function Page() {
       titulo: "Gerador de Bio LinkedIn",
       imagem: "/images/gerador_bio.png",
       descricao: "Uma aplicação Full Stack para gerar bios profissionais e personalizadas para o LinkedIn usando Inteligência Artificial. Este projeto utiliza a API da OpenAI para gerar conteúdo de alta qualidade em tempo real.",
-      tecnologias: ['React', 'JavaScript', 'Node.js', 'Express.js', 'Api OpenAI'],
+      tecnologias: ['React', 'JavaScript', 'Node.js', 'Express.js', 'OpenAI'],
       // linkDeploy: "https://my-task2-2af62.web.app/",
       linkRepoFront: "https://github.com/alanasilva88/generate-bio-linkedIn-front",
       linkRepoBack: "https://github.com/alanasilva88/generate-bio-linkedIn-back"
