@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
         </div>
 
         <p className="text-sm">
-          Desenvolvido por <span className="text-yellow-400">Alana Soares</span>.
+          Desenvolvido por <span className="text-yellow-400">Alana Silva</span>.
           <br />
           © {new Date().getFullYear()} Todos os direitos reservados.
         </p>
