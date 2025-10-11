@@ -17,6 +17,7 @@ const iconMap: { [key: string]: string } = {
   'Kafka': 'devicon-apachekafka-original',
   'Docker': 'devicon-docker-plain',
   'Angular': 'devicon-angularjs-plain',
+  'OpenAI': 'devicon-openai-original',
 };
 
 // Interface para definir o formato do objeto de projeto
