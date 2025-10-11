@@ -53,7 +53,7 @@ export default function Page() {
       descricao: "Este projeto é um microsserviço moderno construído com Spring Boot para desacoplar a requisição de envio de e-mail da operação real, usando o Apache Kafka como espinha dorsal de mensageria. A arquitetura foca em alta disponibilidade, resiliência contra falhas de rede e escalabilidade horizontal.",
       tecnologias: ['Kafka', 'Java', 'Spring Boot', 'Docker', 'MailHog'],
       // linkDeploy: "https://password-generator-ui.vercel.app/",
-      linkRepoFront: "https://github.com/alanasilva88/Kafka-SpringBoot-Email-Service",
+      linkRepoBack: "https://github.com/alanasilva88/Kafka-SpringBoot-Email-Service",
     },
     // Adicione mais projetos aqui...
   ];
