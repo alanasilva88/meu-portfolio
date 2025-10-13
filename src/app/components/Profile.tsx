@@ -16,7 +16,7 @@ const Profile: FC = () => {
             {/* Adiciona uma borda amarela e arredonda a imagem */}
             <div className="rounded-full overflow-hidden border-4 border-yellow-500 shadow-lg">
               <Image
-                src="/images/alana_linkedIn.png"
+                src="/images/alana_linkedIn.jpeg"
                 alt="Imagem Alana"
                 width={300} // Ajustado para ser menor no desktop
                 height={300} // Ajustado para ser menor no desktop
