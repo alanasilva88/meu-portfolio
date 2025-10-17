@@ -29,7 +29,7 @@ export default function Page() {
     {
       id: 3,
       titulo: "Gerador de Bio LinkedIn",
-      imagem: "/images/gerador_bio.png",
+      imagem: "/images/bio_generate.png",
       descricao: "Uma aplicação Full Stack para gerar bios profissionais e personalizadas para o LinkedIn usando Inteligência Artificial. Este projeto utiliza a API da OpenAI para gerar conteúdo de alta qualidade em tempo real.",
       tecnologias: ['React', 'JavaScript', 'Node.js', 'Express.js', 'OpenAI'],
       // linkDeploy: "https://my-task2-2af62.web.app/",
