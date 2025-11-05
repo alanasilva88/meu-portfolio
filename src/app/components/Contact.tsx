@@ -11,7 +11,7 @@ interface FormData {
 
 // Seu endpoint do Formspree (use o seu código real aqui)
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xrbzdydv";
-const CURRICULO_LINK = "/curriculo.pdf"; // Ajuste para o caminho do seu CV (deve estar na pasta 'public')
+const CURRICULO_LINK = "/ALANA SILVA - CV.pdf"; // Ajuste para o caminho do seu CV (deve estar na pasta 'public')
 
 const Contact: FC = () => {
   const [formData, setFormData] = useState<FormData>({ nome: '', email: '', mensagem: '' });
