@@ -21,7 +21,7 @@ export default function Page() {
       id: 2,
       titulo: "My Task",
       imagem: "/images/my_task.png",
-      descricao: "MyTask é um sistema para gerenciamento de tarefas pessoais. Com esta aplicação, você pode cadastrar, visualizar, editar e excluir suas atividades diárias de maneira fácil e organizada. Em um projeto de equipe, fui responsável por desenvolver o full-stack do e-commerce do zero. Minha contribuição incluiu a implementação de recursos de busca avançada e ordenação de produtos, que resultaram em uma experiência de navegação mais fluida para o usuário.",
+      descricao: "MyTask é um sistema para gerenciamento de tarefas pessoais. Com esta aplicação, você pode cadastrar, visualizar, editar e excluir suas atividades diárias de maneira fácil e organizada.",
       tecnologias: ['React', 'JavaScript', 'Bootstrap', 'TailwindCSS', 'Firebase'],
       linkDeploy: "https://my-task2-2af62.web.app/",
       linkRepoFront: "https://github.com/alanasilva88/FullReactSoulCode-React-Firebase"
