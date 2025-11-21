@@ -16,7 +16,7 @@ const Profile: FC = () => {
             {/* Adiciona uma borda amarela e arredonda a imagem */}
             <div className="rounded-full overflow-hidden border-4 border-yellow-500 shadow-lg">
               <Image
-                src="/images/alana_linkedIn.jpeg"
+                src="/assets/alana_linkedIn.jpeg"
                 alt="Imagem Alana"
                 width={300} // Ajustado para ser menor no desktop
                 height={300} // Ajustado para ser menor no desktop
@@ -54,7 +54,7 @@ const Profile: FC = () => {
                 className="p-3 rounded-full bg-gray-800 text-gray-300 hover:bg-yellow-500 hover:text-gray-900 transition duration-300 shadow-md flex items-center justify-center"
               >
                 <Image
-                  src="/images/linkedin.svg" // O caminho relativo à pasta `public`
+                  src="/assets/linkedin.svg" // O caminho relativo à pasta `public`
                   alt="LinkedIn"
                   width={30}               // Defina a largura
                   height={30}              // Defina a altura
@@ -68,7 +68,7 @@ const Profile: FC = () => {
                 className="p-3 rounded-full bg-gray-800 text-gray-300 hover:bg-yellow-500 hover:text-gray-900 transition duration-300 shadow-md"
               >
                 <Image
-                  src="/images/github.svg" // O caminho relativo à pasta `public`
+                  src="/assets/github.svg" // O caminho relativo à pasta `public`
                   alt="GitHub"
                   width={30}               // Defina a largura
                   height={30}              // Defina a altura
