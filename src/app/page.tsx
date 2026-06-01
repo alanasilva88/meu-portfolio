@@ -55,6 +55,16 @@ export default function Page() {
       // linkDeploy: "https://password-generator-ui.vercel.app/",
       linkRepoBack: "https://github.com/alanasilva88/Kafka-SpringBoot-Email-Service",
     },
+    {
+      id: 6,
+      titulo: "Agenda de Contatos",
+      imagem: "/assets/contact_agenda.png",
+      descricao: "API RESTful robusta desenvolvida em Java 17 e Spring Boot 3 estruturada sob os pilares da Arquitetura Hexagonal (Ports & Adapters). Foco em isolamento total do domínio, desacoplamento de frameworks e aplicação estrita de princípios SOLID.nsiva.",
+      tecnologias: ['React', 'Java', 'Spring Boot', 'Tailwind CSS'],
+      linkDeploy: "https://agenda-web-sigma.vercel.app/",
+      linkRepoFront: "https://github.com/alanasilva88/agenda-web",
+      linkRepoBack: "https://github.com/alanasilva88/agenda-hexagonal-backend",
+    },
     // Adicione mais projetos aqui...
   ];
 
