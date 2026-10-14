@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import ProjectGallery from './ProjectGallery';
+import type { Projeto } from '../../data/projects';
 
 // Mapeamento de tecnologias para classes de ícones
 const iconMap: { [key: string]: string } = {
@@ -8,6 +10,14 @@ const iconMap: { [key: string]: string } = {
   'Bootstrap': 'devicon-bootstrap-plain',
   'CSS': 'devicon-css3-plain',
   'TailwindCSS': 'devicon-tailwindcss-original',
+  'Tailwind CSS': 'devicon-tailwindcss-original',
+  'Next.js': 'devicon-nextjs-plain',
+  'TypeScript': 'devicon-typescript-plain',
+  'Prisma ORM': 'devicon-prisma-original',
+  'PostgreSQL': 'devicon-postgresql-plain',
+  'Fastify': 'devicon-fastify-plain',
+  'Vercel': 'devicon-vercel-original',
+  'Java 17/21': 'devicon-java-plain',
   'Firebase': 'devicon-firebase-plain',
   'MySQL': 'devicon-mysql-plain',
   'Node.js': 'devicon-nodejs-plain',
@@ -17,24 +27,13 @@ const iconMap: { [key: string]: string } = {
   'Kafka': 'devicon-apachekafka-original',
   'Docker': 'devicon-docker-plain',
   'Angular': 'devicon-angularjs-plain',
-  'OpenAI': 'devicon-openai-original',
 };
 
 // Interface para definir o formato do objeto de projeto
-interface ProjetoProps {
-  id: number;
-  titulo: string;
-  imagem: string;
-  descricao: string;
-  tecnologias: string[];
-  linkDeploy?: string;
-  linkRepoFront?: string;
-  linkRepoBack?: string;
-}
 
 // Interface para as props do componente
 interface ProjectItemProps {
-  projeto: ProjetoProps;
+  projeto: Projeto;
 }
 
 export default function ProjectItem({ projeto }: ProjectItemProps) {
@@ -44,6 +43,9 @@ export default function ProjectItem({ projeto }: ProjectItemProps) {
                     hover:border-yellow-500 transition-all duration-300 h-full">
 
       {/* Imagem do Projeto */}
+      {projeto.imagens?.length ? (
+        <ProjectGallery titulo={projeto.titulo} imagens={projeto.imagens} />
+      ) : projeto.imagem ? (
       <div className="relative w-full h-48 overflow-hidden">
         <Image
           src={projeto.imagem}
@@ -54,19 +56,35 @@ export default function ProjectItem({ projeto }: ProjectItemProps) {
         />
       </div>
 
+      ) : (
+        <div className="flex h-48 flex-col justify-center gap-3 border-b border-gray-700 bg-gradient-to-br from-gray-900 to-gray-800 p-6">
+          <p className="text-sm font-medium text-yellow-400">{projeto.categoria}</p>
+          <p className="text-3xl font-bold text-white">{projeto.titulo}</p>
+        </div>
+      )}
+
       <div className="p-5 flex flex-col flex-grow">
         <h3 className="text-2xl font-semibold mb-3 text-white">{projeto.titulo}</h3>
 
         {/* Ícones de Tecnologia: Amarelo para destaque */}
-        <div className="flex flex-wrap gap-3 mb-4 text-2xl text-yellow-400">
+        {projeto.subtitulo && <p className="mb-3 text-base font-medium text-gray-200">{projeto.subtitulo}</p>}
+        {projeto.tag && (
+          <p className="mb-4 self-start rounded-md border border-yellow-500/40 bg-yellow-500/10 px-3 py-1 text-xs font-medium text-yellow-400">{projeto.tag}</p>
+        )}
+        <ul className="flex flex-wrap gap-2 mb-4" aria-label="Tecnologias utilizadas">
           {projeto.tecnologias.map(tech => (
-            <i
-              key={tech}
-              className={`${iconMap[tech]} colored`} // 'colored' deve ser estilizado no seu CSS global
-              title={tech}
-            ></i>
+            <li key={tech} className="inline-flex items-center gap-2 rounded-md border border-gray-600 bg-gray-900 px-2 py-1 text-xs text-gray-200">
+              {iconMap[tech] ? (
+                <i className={`${iconMap[tech]} text-base text-yellow-400`} aria-hidden="true" />
+              ) : (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="shrink-0 text-yellow-400" aria-hidden="true">
+                  <path d="m8 5-7 7 7 7m8-14 7 7-7 7m-3-16-2 18" />
+                </svg>
+              )}
+              {tech}
+            </li>
           ))}
-        </div>
+        </ul>
 
         <p className="text-gray-400 mb-6 flex-grow">{projeto.descricao}</p>
 
@@ -79,6 +97,7 @@ export default function ProjectItem({ projeto }: ProjectItemProps) {
               className="px-4 py-2 text-sm font-medium bg-yellow-500 text-gray-900 rounded-md 
                          hover:bg-yellow-400 transition-colors duration-200"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Ver Deploy
             </Link>
@@ -90,6 +109,7 @@ export default function ProjectItem({ projeto }: ProjectItemProps) {
               className="px-4 py-2 text-sm font-medium border border-yellow-500 text-yellow-400 rounded-md 
                          hover:bg-yellow-500 hover:text-gray-900 transition-colors duration-200"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Repo Front-end
             </Link>
@@ -100,6 +120,7 @@ export default function ProjectItem({ projeto }: ProjectItemProps) {
               className="px-4 py-2 text-sm font-medium border border-yellow-500 text-yellow-400 rounded-md 
                  hover:bg-yellow-500 hover:text-gray-900 transition-colors duration-200"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Repo Back-end
             </Link>
