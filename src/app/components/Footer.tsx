@@ -1,11 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
+import BrandLogo from './BrandLogo';
 
 const Footer: React.FC = () => {
   return (
     // Fundo Preto, Texto Cinza Claro, Borda Amarela no topo
     <footer className="bg-gray-950 text-gray-400 border-t-2 border-yellow-500 p-8">
       <div className="container mx-auto text-center">
+        <div className="mb-6 flex justify-center">
+          <BrandLogo compact />
+        </div>
 
         <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mb-4">
           <Link href="#sobre" className="hover:text-yellow-400 transition-colors">

@@ -1,0 +1,11 @@
+.logo {
+  /* Blend the original artwork's dark background into the page at its edges. */
+  -webkit-mask-image:
+    linear-gradient(to right, transparent, #000 6%, #000 94%, transparent),
+    linear-gradient(to bottom, transparent, #000 18%, #000 80%, transparent);
+  mask-image:
+    linear-gradient(to right, transparent, #000 6%, #000 94%, transparent),
+    linear-gradient(to bottom, transparent, #000 18%, #000 80%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}

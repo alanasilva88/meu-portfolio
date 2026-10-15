@@ -27,23 +27,19 @@
 
 .card::before {
   z-index: 0;
-  background: radial-gradient(
-    420px circle at var(--mouse-x) var(--mouse-y),
-    rgb(56 189 248 / 12%),
-    rgb(139 92 246 / 6%) 40%,
-    transparent 75%
-  );
+  background: radial-gradient(420px circle at var(--mouse-x) var(--mouse-y),
+      rgb(56 189 248 / 12%),
+      rgb(139 92 246 / 6%) 40%,
+      transparent 75%);
 }
 
 .card::after {
   z-index: 2;
   padding: 1px;
-  background: radial-gradient(
-    280px circle at var(--mouse-x) var(--mouse-y),
-    rgb(103 232 249 / 85%),
-    rgb(139 92 246 / 55%) 45%,
-    transparent 80%
-  );
+  background: radial-gradient(280px circle at var(--mouse-x) var(--mouse-y),
+      rgb(103 232 249 / 85%),
+      rgb(139 92 246 / 55%) 45%,
+      transparent 80%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -51,6 +47,7 @@
 }
 
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+
   .card[data-spotlight='active']:hover::before,
   .card[data-spotlight='active']:hover::after {
     opacity: 1;
@@ -58,6 +55,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .card::before,
   .card::after {
     transition: none;

@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { FC } from "react";
+import styles from "./Profile.module.css";
+import HeroTypewriter from "./HeroTypewriter";
 
 const Profile: FC = () => {
   return (
@@ -7,40 +9,48 @@ const Profile: FC = () => {
     <section id="sobre" className="py-12 md:py-20">
       {/* Centraliza o conteúdo e padding horizontal */}
       <div className="max-w-6xl mx-auto px-4">
-
         {/* Layout Flex para imagem e texto, responsivo */}
-        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
           {/* Imagem */}
-          <div className="w-full md:w-1/3 flex justify-center">
-            {/* Adiciona uma borda amarela e arredonda a imagem */}
-            <div className="rounded-full overflow-hidden border-4 border-yellow-500 shadow-lg">
+          <div className="order-1 flex w-full justify-center md:order-2 md:w-5/12">
+            {/* Retrato integrado ao fundo com máscaras de opacidade e glow. */}
+            <div className={styles.portrait}>
               <Image
                 src="/assets/alana_linkedIn.jpeg"
-                alt="Imagem Alana"
-                width={300} // Ajustado para ser menor no desktop
-                height={300} // Ajustado para ser menor no desktop
-                className="object-cover"
+                alt="Alana Silva, desenvolvedora Full Stack"
+                width={864}
+                height={1184}
+                sizes="(min-width: 1280px) 432px, (min-width: 768px) 40vw, (min-width: 480px) 432px, 85vw"
+                priority
+                className={styles.photo}
               />
             </div>
           </div>
 
           {/* Texto Sobre */}
-          <div className="w-full min-w-0 md:w-2/3">
+          <div className="order-2 w-full min-w-0 md:order-1 md:w-7/12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Muito prazer, <span className="text-yellow-400">sou Alana Silva.</span>
+              Muito prazer,{" "}
+              <span className="text-yellow-400">sou Alana Silva.</span>
             </h2>
-            <p className="mb-4 text-lg md:text-xl font-medium text-gray-200 leading-relaxed">
-              Desenvolvedora Full Stack | <strong className="font-semibold">Node.js</strong> (<strong className="font-semibold">TypeScript</strong>, <strong className="font-semibold">Next.js</strong>) &amp; <strong className="font-semibold">Java</strong> (<strong className="font-semibold">Spring Boot</strong>)
+            <p className="mb-4 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-lg md:text-xl text-gray-200 leading-relaxed">
+              <strong className="font-semibold">Desenvolvedora Full Stack |</strong>
+              <HeroTypewriter />
             </p>
             <p className="mb-4 text-gray-300 leading-relaxed">
               Desenvolvedora Full Stack focada em construir sistemas escaláveis,
-              APIs RESTful resilientes e aplicações web de alta performance. Atuo
-              no ecossistema <strong className="font-semibold">Java</strong> (<strong className="font-semibold">Spring Boot</strong>, <strong className="font-semibold">Kafka</strong>)
-              {" "}e <strong className="font-semibold">TypeScript</strong> (<strong className="font-semibold">Node.js</strong>, <strong className="font-semibold">Next.js</strong>, <strong className="font-semibold">React</strong>),
-              integrando bancos de dados relacionais (PostgreSQL, MySQL),
-              containerização com <strong className="font-semibold">Docker</strong> e
-              soluções com Inteligência Artificial.
+              APIs RESTful resilientes e aplicações web de alta performance.
+              Atuo no ecossistema{" "}
+              <strong className="font-semibold">Java</strong> (
+              <strong className="font-semibold">Spring Boot</strong>,{" "}
+              <strong className="font-semibold">Kafka</strong>) e{" "}
+              <strong className="font-semibold">TypeScript</strong> (
+              <strong className="font-semibold">Node.js</strong>,{" "}
+              <strong className="font-semibold">Next.js</strong>,{" "}
+              <strong className="font-semibold">React</strong>), integrando
+              bancos de dados relacionais (PostgreSQL, MySQL), containerização
+              com <strong className="font-semibold">Docker</strong> e soluções
+              com Inteligência Artificial.
             </p>
             <p className="mb-6 text-gray-300 leading-relaxed">
               Minha experiência abrange desde a concepção e arquitetura de
@@ -62,8 +72,8 @@ const Profile: FC = () => {
                 <Image
                   src="/assets/linkedin.svg" // O caminho relativo à pasta `public`
                   alt="LinkedIn"
-                  width={30}               // Defina a largura
-                  height={30}              // Defina a altura
+                  width={30} // Defina a largura
+                  height={30} // Defina a altura
                   className="w-6 h-6" // Para garantir que o SVG não seja esticado
                 />
               </a>
@@ -76,8 +86,8 @@ const Profile: FC = () => {
                 <Image
                   src="/assets/github.svg" // O caminho relativo à pasta `public`
                   alt="GitHub"
-                  width={30}               // Defina a largura
-                  height={30}              // Defina a altura
+                  width={30} // Defina a largura
+                  height={30} // Defina a altura
                   className="w-6 h-6" // Para garantir que o SVG não seja esticado
                 />
               </a>

@@ -1,14 +1,17 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, type PointerEvent, type ReactNode } from 'react';
-import styles from './SpotlightCard.module.css';
+import { useEffect, useRef, type PointerEvent, type ReactNode } from "react";
+import styles from "./SpotlightCard.module.css";
 
 interface SpotlightCardProps {
   children: ReactNode;
   className?: string;
 }
 
-export default function SpotlightCard({ children, className = '' }: SpotlightCardProps) {
+export default function SpotlightCard({
+  children,
+  className = "",
+}: SpotlightCardProps) {
   const cardRef = useRef<HTMLElement>(null);
   const frameRef = useRef<number | null>(null);
   const pointerRef = useRef({ x: 0, y: 0 });
@@ -23,9 +26,13 @@ export default function SpotlightCard({ children, className = '' }: SpotlightCar
   useEffect(() => cancelFrame, []);
 
   const handlePointerMove = (event: PointerEvent<HTMLElement>) => {
-    if (event.pointerType !== 'mouse' || !window.matchMedia(
-      '(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)',
-    ).matches) return;
+    if (
+      event.pointerType !== "mouse" ||
+      !window.matchMedia(
+        "(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)",
+      ).matches
+    )
+      return;
 
     pointerRef.current = { x: event.clientX, y: event.clientY };
     if (frameRef.current !== null) return;
@@ -37,9 +44,15 @@ export default function SpotlightCard({ children, className = '' }: SpotlightCar
       if (!card) return;
 
       const bounds = card.getBoundingClientRect();
-      card.style.setProperty('--mouse-x', `${pointerRef.current.x - bounds.left}px`);
-      card.style.setProperty('--mouse-y', `${pointerRef.current.y - bounds.top}px`);
-      card.dataset.spotlight = 'active';
+      card.style.setProperty(
+        "--mouse-x",
+        `${pointerRef.current.x - bounds.left}px`,
+      );
+      card.style.setProperty(
+        "--mouse-y",
+        `${pointerRef.current.y - bounds.top}px`,
+      );
+      card.dataset.spotlight = "active";
     });
   };
 
