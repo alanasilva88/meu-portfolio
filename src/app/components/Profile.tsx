@@ -26,22 +26,28 @@ const Profile: FC = () => {
           </div>
 
           {/* Texto Sobre */}
-          <div className="w-full md:w-2/3">
+          <div className="w-full min-w-0 md:w-2/3">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Muito prazer, <span className="text-yellow-400">sou Alana Silva.</span>
             </h2>
+            <p className="mb-4 text-lg md:text-xl font-medium text-gray-200 leading-relaxed">
+              Desenvolvedora Full Stack | <strong className="font-semibold">Node.js</strong> (<strong className="font-semibold">TypeScript</strong>, <strong className="font-semibold">Next.js</strong>) &amp; <strong className="font-semibold">Java</strong> (<strong className="font-semibold">Spring Boot</strong>)
+            </p>
             <p className="mb-4 text-gray-300 leading-relaxed">
-              Com um histórico comprovado em desenvolvimento Full Stack,
-              sou apaixonada por transformar ideias em soluções digitais
-              performáticas e responsivas. Minha experiência abrange desde o
-              desenvolvimento de interfaces e APIs robustas até a automação de
-              processos e gerenciamento de dados em ambientes de nuvem.
+              Desenvolvedora Full Stack focada em construir sistemas escaláveis,
+              APIs RESTful resilientes e aplicações web de alta performance. Atuo
+              no ecossistema <strong className="font-semibold">Java</strong> (<strong className="font-semibold">Spring Boot</strong>, <strong className="font-semibold">Kafka</strong>)
+              {" "}e <strong className="font-semibold">TypeScript</strong> (<strong className="font-semibold">Node.js</strong>, <strong className="font-semibold">Next.js</strong>, <strong className="font-semibold">React</strong>),
+              integrando bancos de dados relacionais (PostgreSQL, MySQL),
+              containerização com <strong className="font-semibold">Docker</strong> e
+              soluções com Inteligência Artificial.
             </p>
             <p className="mb-6 text-gray-300 leading-relaxed">
-              Sempre me identifiquei com a área de tecnologia, e agora estou
-              plenamente dedicada a me tornar uma desenvolvedora de software de
-              excelência. Acredito que o caminho para o sucesso requer dedicação
-              e aprendizado contínuo, e estou animada para esta nova aventura.
+              Minha experiência abrange desde a concepção e arquitetura de
+              microsserviços (Arquitetura Hexagonal, mensageria) até o deploy de
+              SaaS completos em produção com domínio próprio, pipelines de CI/CD
+              e integração de APIs transacionais. Foco em código limpo, boas
+              práticas de engenharia e resolução de dores reais de negócio.
             </p>
 
             {/* Botões Sociais */}

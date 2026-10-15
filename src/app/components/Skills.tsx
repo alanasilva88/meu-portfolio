@@ -1,81 +1,109 @@
-import { FC } from 'react';
+﻿import { FC } from 'react';
 
-// Dados da sua Stack de Tecnologias
-const skills = [
-    // Backend & Linguagens Principais
-    { name: 'Java', iconClass: 'devicon-java-plain' },
-    { name: 'Spring Boot', iconClass: 'devicon-spring-plain' }, // O Devicon usa 'spring-plain' para Spring Boot
-    { name: 'Node.js', iconClass: 'devicon-nodejs-plain' },
-    { name: 'Express.js', iconClass: 'devicon-express-original' },
-    { name: 'JavaScript', iconClass: 'devicon-javascript-plain' },
-    { name: 'TypeScript', iconClass: 'devicon-typescript-plain' },
+const technologyIcons: Record<string, string> = {
+    "Java 17/21": "devicon-java-plain",
+    "Spring Boot": "devicon-spring-original",
+    "Node.js": "devicon-nodejs-plain",
+    "Express.js": "devicon-express-original",
+    "Fastify": "devicon-fastify-plain",
+    "Apache Kafka": "devicon-apachekafka-original",
+    "TypeScript": "devicon-typescript-plain",
+    "Next.js": "devicon-nextjs-plain",
+    "React": "devicon-react-original",
+    "Angular": "devicon-angularjs-plain",
+    "Tailwind CSS": "devicon-tailwindcss-original",
+    "JavaScript": "devicon-javascript-plain",
+    "PostgreSQL": "devicon-postgresql-plain",
+    "MySQL": "devicon-mysql-original",
+    "Prisma ORM": "devicon-prisma-original",
+    "Firebase": "devicon-firebase-plain",
+    "Docker": "devicon-docker-plain",
+    "AWS": "devicon-amazonwebservices-plain-wordmark",
+    "Google Cloud (GCP)": "devicon-googlecloud-plain",
+    "Git / GitHub": "devicon-git-plain",
+    "Vercel & Render": "devicon-vercel-original"
+};
 
-    // Frontend & UI
-    { name: 'React', iconClass: 'devicon-react-original' },
-    { name: 'Angular', iconClass: 'devicon-angularjs-plain' },
-    { name: 'Next.js', iconClass: 'devicon-nextjs-plain' },
-    { name: 'Tailwind CSS', iconClass: 'devicon-tailwindcss-plain' },
-    { name: 'CSS', iconClass: 'devicon-css3-plain' },
-    { name: 'Bootstrap', iconClass: 'devicon-bootstrap-plain' },
-
-    // Cloud & DevOps
-    { name: 'AWS', iconClass: 'devicon-amazonwebservices-plain' },
-    { name: 'GCP', iconClass: 'devicon-googlecloud-plain' },
-    { name: 'Docker', iconClass: 'devicon-docker-plain' },
-
-    // Banco de Dados & Mensageria
-    { name: 'MySQL', iconClass: 'devicon-mysql-plain' },
-    // Kafka não tem um ícone oficial Devicon, usamos a nuvem para representar sistemas distribuídos
-    { name: 'Kafka', iconClass: 'devicon-apachekafka-original' },
-    { name: 'Firebase', iconClass: 'devicon-firebase-plain' },
-
-    // Ferramentas
-    { name: 'Git', iconClass: 'devicon-git-plain' },
-    { name: 'VS Code', iconClass: 'devicon-vscode-plain' },    // Adicione mais tecnologias aqui...
+const skillCategories = [
+    {
+        id: 'backend',
+        title: 'Backend & Arquitetura',
+        technologies: [
+            'Java 17/21', 'Spring Boot', 'Node.js', 'Express.js', 'Fastify',
+            'Apache Kafka', 'REST APIs & Arquitetura Hexagonal',
+        ],
+    },
+    {
+        id: 'frontend',
+        title: 'Frontend & Interface',
+        technologies: ['TypeScript', 'Next.js', 'React', 'Angular', 'Tailwind CSS', 'JavaScript'],
+    },
+    {
+        id: 'bancos-de-dados',
+        title: 'Bancos de Dados & ORM',
+        technologies: ['PostgreSQL', 'MySQL', 'Prisma ORM', 'Firebase'],
+    },
+    {
+        id: 'devops',
+        title: 'DevOps & Nuvem',
+        technologies: ['Docker', 'AWS', 'Google Cloud (GCP)', 'Git / GitHub', 'Vercel & Render'],
+    },
 ];
 
 const Skills: FC = () => {
     return (
-        <section id="especialidades" className="py-16 md:py-24 bg-gray-950">
+        <section id="especialidades" className="py-16 md:py-24 bg-gray-950" aria-labelledby="especialidades-title">
             <div className="container mx-auto px-4">
-
-                {/* Título da Seção */}
-                <h2 className="text-4xl font-bold text-center mb-12 text-white border-b border-yellow-500 pb-4 max-w-lg mx-auto">
+                <h2 id="especialidades-title" className="text-3xl sm:text-4xl font-bold text-center mb-12 text-white border-b border-yellow-500 pb-4 max-w-lg mx-auto">
                     Minhas <span className="text-yellow-400">Especialidades</span>
                 </h2>
 
-                {/*
-          Carrossel Simples (Faixa de Rolagem Horizontal)
-          - flex: Permite que os itens fiquem lado a lado.
-          - overflow-x-auto: Permite a rolagem horizontal em telas pequenas.
-          - scrollbar-hide: Opcional, para esconder a barra de rolagem se estiver usando um plugin do Tailwind.
-        */}
-                <div className="flex space-x-10 p-4 overflow-x-auto whitespace-nowrap scrollbar-hide">
-
-                    {skills.map((skill) => (
-                        // Cartão de Habilidade
-                        <div
-                            key={skill.name}
-                            className="flex flex-col items-center justify-center p-4 bg-gray-900 rounded-lg min-w-[120px] 
-                         shadow-xl hover:bg-gray-800 transition duration-300 transform hover:scale-105"
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
+                    {skillCategories.map((category) => (
+                        <section
+                            key={category.id}
+                            aria-labelledby={`skills-${category.id}`}
+                            className="min-w-0 rounded-xl border border-gray-800 bg-gray-900 p-5 sm:p-8 shadow-lg"
                         >
-                            {/* Ícone Devicon: Cor Amarela para Destaque */}
-                            <i
-                                className={`${skill.iconClass} colored text-6xl text-yellow-500 transition-colors`}
-                                title={skill.name}
-                            ></i>
-
-                            {/* Nome da Stack */}
-                            <p className="mt-3 text-sm font-semibold text-gray-200">{skill.name}</p>
-                        </div>
+                            <h3
+                                id={`skills-${category.id}`}
+                                className="mb-6 border-l-4 border-yellow-500 pl-3 text-xl sm:text-2xl font-semibold text-white"
+                            >
+                                {category.title}
+                            </h3>
+                            <ul className="flex flex-wrap gap-3">
+                                {category.technologies.map((technology) => (
+                                    <li
+                                        key={technology}
+                                        className="flex items-center gap-2 max-w-full rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-sm sm:text-base font-medium leading-relaxed text-gray-200 transition-colors duration-300 hover:border-yellow-500 hover:text-yellow-400"
+                                    >
+                                        {technology === 'REST APIs & Arquitetura Hexagonal' ? (
+                                            <svg
+                                                aria-hidden="true"
+                                                className="h-5 w-5 shrink-0 text-yellow-400"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="1.5"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            >
+                                                <path d="m12 2 9 5v10l-9 5-9-5V7z" />
+                                                <path d="m3 7 9 5 9-5M12 12v10" />
+                                            </svg>
+                                        ) : (
+                                            <i
+                                                aria-hidden="true"
+                                                className={`${technologyIcons[technology]} flex h-5 w-5 shrink-0 items-center justify-center text-xl leading-none text-yellow-400`}
+                                            />
+                                        )}
+                                        <span className="min-w-0">{technology}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </section>
                     ))}
                 </div>
-
-                {/* Opcional: Adicionar uma indicação de rolagem */}
-                <p className="text-center text-gray-500 mt-8 text-sm">
-                    <span className="text-yellow-500">{"<"} Deslize para ver mais {">"}</span>
-                </p>
-
             </div>
         </section>
     );

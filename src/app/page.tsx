@@ -6,6 +6,10 @@ import Skills from './components/Skills';
 import Profile from './components/Profile';
 
 export default function Page() {
+  const ordemDestaques = [10, 7, 5, 8];
+  const destaques = projetos.filter(projeto => projeto.destaque)
+    .sort((a, b) => ordemDestaques.indexOf(a.id) - ordemDestaques.indexOf(b.id));
+  const outrosProjetos = projetos.filter(projeto => !projeto.destaque);
 
   return (
     // Body principal: Fundo Preto, Texto Cinza Claro
@@ -36,11 +40,26 @@ export default function Page() {
           <h2 className="text-4xl font-bold text-center mb-12 text-white border-b border-yellow-500 pb-4 max-w-lg mx-auto">
             Meus <span className="text-yellow-400">Projetos</span>
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projetos.map(projeto => (
-              <ProjectItem key={projeto.id} projeto={projeto} />
-            ))}
-          </div>
+          <section aria-labelledby="projetos-destaque-title" className="mb-16">
+            <h3 id="projetos-destaque-title" className="mb-8 text-2xl sm:text-3xl font-semibold text-white">
+              Projetos em <span className="text-yellow-400">Destaque</span>
+            </h3>
+            <div className="mx-auto grid grid-cols-1 lg:w-[94%] lg:grid-cols-2 gap-8">
+              {destaques.map(projeto => (
+                <ProjectItem key={projeto.id} projeto={projeto} />
+              ))}
+            </div>
+          </section>
+          <section aria-labelledby="outros-projetos-title">
+            <h3 id="outros-projetos-title" className="mb-8 text-2xl sm:text-3xl font-semibold text-white">
+              Outros Projetos <span className="text-yellow-400">&amp; Experimentos</span>
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+              {outrosProjetos.map(projeto => (
+                <ProjectItem key={projeto.id} projeto={projeto} compact />
+              ))}
+            </div>
+          </section>
         </section>
       </main>
       <Contact />
