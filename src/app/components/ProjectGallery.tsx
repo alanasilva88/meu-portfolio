@@ -5,12 +5,14 @@ import { useState } from "react";
 
 interface ProjectGalleryProps {
   titulo: string;
+  ajusteImagem?: "cover" | "contain";
   imagens: { src: string; alt: string }[];
 }
 
 export default function ProjectGallery({
   titulo,
   imagens,
+  ajusteImagem = "cover",
 }: ProjectGalleryProps) {
   const [indice, setIndice] = useState(0);
   const imagem = imagens[indice];
@@ -19,7 +21,7 @@ export default function ProjectGallery({
 
   return (
     <div
-      className="relative h-48 w-full overflow-hidden bg-gray-950"
+      className="relative h-56 w-full shrink-0 overflow-hidden bg-gray-950"
       role="region"
       aria-label={`Imagens do projeto ${titulo}`}
     >
@@ -28,7 +30,7 @@ export default function ProjectGallery({
         alt={imagem.alt}
         fill
         sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-        className="object-contain"
+        className={ajusteImagem === "contain" ? "object-contain" : "object-cover"}
       />
       {imagens.length > 1 && (
         <>

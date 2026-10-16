@@ -6,6 +6,7 @@ export interface Projeto {
   categoria?: string;
   tag?: string;
   imagem?: string;
+  ajusteImagem?: "cover" | "contain";
   imagens?: { src: string; alt: string }[];
   descricao: string;
   tecnologias: string[];
@@ -19,6 +20,7 @@ export interface Projeto {
 export const projetos: Projeto[] = [
   {
     id: 10,
+    ajusteImagem: "contain",
     destaque: true,
     titulo: "JurisTriagem — LegalTech & AI Academic Solution",
     imagens: [
@@ -67,6 +69,7 @@ export const projetos: Projeto[] = [
   },
   {
     id: 7,
+    ajusteImagem: "contain",
     destaque: true,
     titulo: "LeadFlow AI",
     imagens: [
@@ -150,22 +153,6 @@ export const projetos: Projeto[] = [
     linkDeploy: "https://kavumi-web.vercel.app",
   },
   {
-    id: 9,
-    titulo: "Projeto Zelo",
-    subtitulo: "Automação de Notificações e Assistência a Idosos",
-    categoria: "Ecossistema Backend & Senior Care",
-    tag: "Projeto Voluntário Backend",
-    descricao:
-      "Arquitetura de retaguarda em Java (Spring Boot) para disparo de chamadas e lembretes automáticos com foco em alta disponibilidade e confiabilidade.",
-    tecnologias: [
-      "Java 17/21",
-      "Spring Boot",
-      "PostgreSQL",
-      "Docker",
-      "REST APIs",
-    ],
-  },
-  {
     id: 1,
     titulo: "SoulDeCor",
     imagem: "/assets/soulDeCor.png",
@@ -177,10 +164,9 @@ export const projetos: Projeto[] = [
   },
   {
     id: 2,
-    titulo: "My Task",
-    imagem: "/assets/my_task.png",
+    titulo: "ToDoTask",
     descricao:
-      "MyTask é um sistema para gerenciamento de tarefas pessoais. Com esta aplicação, você pode cadastrar, visualizar, editar e excluir suas atividades diárias de maneira fácil e organizada.",
+      "ToDoTask é um sistema para gerenciamento de tarefas pessoais. Com esta aplicação, você pode cadastrar, visualizar, editar e excluir suas atividades diárias de maneira fácil e organizada.",
     tecnologias: [
       "React",
       "JavaScript",
@@ -188,9 +174,8 @@ export const projetos: Projeto[] = [
       "TailwindCSS",
       "Firebase",
     ],
-    linkDeploy: "https://my-task2-2af62.web.app/",
-    linkRepoFront:
-      "https://github.com/alanasilva88/FullReactSoulCode-React-Firebase",
+    linkDeploy: "https://todo-app-1ee79.web.app/",
+    linkRepoFront: "https://github.com/alanasilva88/To-Do-React-Firebase",
   },
   {
     id: 3,

@@ -6,7 +6,7 @@ import HeroTypewriter from "./HeroTypewriter";
 const Profile: FC = () => {
   return (
     // Removemos a classe 'sobre' se ela for CSS padrão e usamos Tailwind
-    <section id="sobre" className="py-12 md:py-20">
+    <section id="sobre" className="pt-12 md:pt-20">
       {/* Centraliza o conteúdo e padding horizontal */}
       <div className="max-w-6xl mx-auto px-4">
         {/* Layout Flex para imagem e texto, responsivo */}

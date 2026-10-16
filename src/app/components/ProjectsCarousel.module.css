@@ -1,0 +1,44 @@
+.viewport {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 88%;
+  gap: 24px;
+  overflow-x: auto;
+  padding: 8px 2px 20px;
+  scrollbar-width: thin;
+  scrollbar-color: #eab308 #111827;
+  cursor: grab;
+}
+
+.viewport:active { cursor: grabbing; }
+
+.viewport:focus-visible {
+  outline: 2px solid #facc15;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #eab308;
+  border-radius: 8px;
+  color: #facc15;
+  background: #111827;
+  cursor: pointer;
+}
+
+.button:hover:not(:disabled) { background: #1f2937; }
+.button:disabled { opacity: 0.3; cursor: default; }
+.button:focus-visible { outline: 2px solid #facc15; outline-offset: 3px; }
+
+@media (min-width: 768px) {
+  .viewport { grid-auto-columns: calc((100% - 24px) / 2); }
+}
+
+@media (min-width: 1280px) {
+  .viewport { grid-auto-columns: calc((100% - 48px) / 3); }
+}

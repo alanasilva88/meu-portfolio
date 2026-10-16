@@ -1,0 +1,21 @@
+.card {
+  min-width: 0;
+  height: 100%;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .card {
+    transition: translate 200ms ease-out;
+  }
+
+  .card:hover {
+    translate: 0 -4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

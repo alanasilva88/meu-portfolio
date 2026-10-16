@@ -1,5 +1,6 @@
 import Footer from "./components/Footer";
 import ProjectItem from "./components/ProjectItem";
+import ProjectsCarousel from "./components/ProjectsCarousel";
 import { projetos } from "../data/projects";
 import Contact from "./components/Contact";
 import Skills from "./components/Skills";
@@ -88,11 +89,11 @@ export default function Page() {
               Outros Projetos{" "}
               <span className="text-yellow-400">&amp; Experimentos</span>
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <ProjectsCarousel>
               {outrosProjetos.map((projeto) => (
                 <ProjectItem key={projeto.id} projeto={projeto} compact />
               ))}
-            </div>
+            </ProjectsCarousel>
           </section>
         </section>
       </main>

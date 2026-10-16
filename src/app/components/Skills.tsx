@@ -72,7 +72,7 @@ const Skills: FC = () => {
   return (
     <section
       id="especialidades"
-      className="py-16 md:py-24 bg-gray-950"
+      className="pb-16 md:pb-24 bg-gray-950"
       aria-labelledby="especialidades-title"
     >
       <div className="container mx-auto px-4">

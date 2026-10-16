@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import ProjectGallery from "./ProjectGallery";
 import SpotlightCard from "./SpotlightCard";
+import ProjectMotion from "./ProjectMotion";
 import type { Projeto } from "../../data/projects";
 
 // Mapeamento de tecnologias para classes de ícones
@@ -51,29 +52,34 @@ export default function ProjectItem({
   const Card = spotlight ? SpotlightCard : "article";
 
   return (
+    <ProjectMotion>
     <Card
       className={`min-w-0 flex flex-col rounded-lg overflow-hidden border shadow-xl transition-colors duration-300 h-full ${
         spotlight
-          ? "border-slate-700/70 bg-slate-900/80 backdrop-blur-md"
+          ? "border-slate-700/70 bg-slate-900/80 backdrop-blur-md hover:border-yellow-500/60"
           : "border-gray-700 bg-gray-800 hover:border-yellow-500"
       }`}
     >
       {/* Imagem do Projeto */}
       {!compact &&
         (projeto.imagens?.length ? (
-          <ProjectGallery titulo={projeto.titulo} imagens={projeto.imagens} />
+          <ProjectGallery
+            titulo={projeto.titulo}
+            imagens={projeto.imagens}
+            ajusteImagem={projeto.ajusteImagem}
+          />
         ) : projeto.imagem ? (
-          <div className="relative w-full h-48 overflow-hidden">
+          <div className="relative w-full h-56 shrink-0 overflow-hidden">
             <Image
               src={projeto.imagem}
               alt={`Projeto ${projeto.titulo}`}
-              className="object-cover w-full h-full transition-transform duration-500 hover:scale-105"
+              className="object-cover w-full h-full"
               width={400} // Ajuste de acordo com o tamanho real
               height={240} // Ajuste de acordo com o tamanho real
             />
           </div>
         ) : (
-          <div className="flex min-h-48 flex-col justify-center gap-3 border-b border-gray-700 bg-gradient-to-br from-gray-900 to-gray-800 p-6">
+          <div className="flex h-56 shrink-0 flex-col justify-center gap-3 border-b border-gray-700 bg-gradient-to-br from-gray-900 to-gray-800 p-6">
             <p className="text-sm font-medium text-yellow-400">
               {projeto.categoria}
             </p>
@@ -198,5 +204,6 @@ export default function ProjectItem({
         </div>
       </div>
     </Card>
+    </ProjectMotion>
   );
 }
